@@ -1,11 +1,14 @@
 package com.company;
 
+
 public class Main {
 
     public static void main(String[] args) {
-	LinkedList mylist = new LinkedList();
+	LinkedList myList = new LinkedList();
 
-	mylist.add("hello")
+	myList.add("hello");
+	myList.add("2");
+	myList.add(3);
 
 
     }
