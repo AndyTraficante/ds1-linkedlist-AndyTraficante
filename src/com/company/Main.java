@@ -10,7 +10,20 @@ public class Main {
 	myList.add("2");
 	myList.add(3);
 
-	myList.count(3, 3);
+		System.out.println(myList.size());
+
+	myList.count(3, 10);
+
+	myList.addFirst("andyyyyy");
+
+	myList.addLast("7563856385639");
+
+	System.out.println(myList.get(1));
+
+	System.out.println(myList.contains(3444));
+
+	myList.print();
+
 
     }
 }
