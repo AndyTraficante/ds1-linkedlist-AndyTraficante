@@ -9,7 +9,7 @@ public class LinkedList {
         tail = null;
     }
 
-    public void add(Object newEntry) {
+    public boolean add(Object newEntry) {
         Node currentNode = head;
         Node newNode = new Node(newEntry);
         if (head == null) {
@@ -25,10 +25,24 @@ public class LinkedList {
             currentNode.next = newNode;
             System.out.println("New Node Added");
         }
+        return true;
     }
 
+    public void count(Object newEntry, int index) {
+        int counter = 0;
+        System.out.println(counter);
+        Node currentNode = head;
+        System.out.println(head == null);
+        if(head != null){
+            counter++;
+            while (currentNode.next != null);
+        }
+            System.out.println(counter);
+        }
 
-    private class Node {
+
+
+    public class Node {
         Object data;
         Node next;
         Node previous;

@@ -10,6 +10,7 @@ public class Main {
 	myList.add("2");
 	myList.add(3);
 
+	myList.count(3, 3);
 
     }
 }
