@@ -10,6 +10,7 @@ public class LinkedList {
     }
 
     public boolean add(Object newEntry) {
+        //if (!this.isHeadNull()) {
         Node currentNode = head;
         Node newNode = new Node(newEntry);
         if (head == null) {
@@ -25,50 +26,68 @@ public class LinkedList {
             currentNode.next = newNode;
             System.out.println("New Node Added");
         }
-        return true;
+        return true; /*
+        } else {
+            System.out.println("Head is null!");
+        }
+        return false;
+    }
+    */
     }
 
     public void count(Object newEntry, int index) {
-        int counter = 0;
-        Node currentNode = head;
-        // System.out.println(head == null);
-        if (head != null) {
-            counter++;
-            while (currentNode.next != null) {
+        if (!this.isHeadNull()) {
+            int counter = 0;
+            Node currentNode = head;
+            // System.out.println(head == null);
+            if (head != null) {
                 counter++;
-                currentNode = currentNode.next;
+                while (currentNode.next != null) {
+                    counter++;
+                    currentNode = currentNode.next;
+                }
             }
-        }
-        //System.out.println(counter);
+            //System.out.println(counter);
 
-        if (index>counter){
-            System.out.println("The index is outside of the size of the Linked List!!!");
-        }else{
-            currentNode = head;
-            Node newNode = new Node(newEntry);
-            for(int i = 0; i<index-1; i++){
-                currentNode = currentNode.next;
-                currentNode.next = newNode;
+            if (index > counter) {
+                System.out.println("The index is outside of the size of the Linked List!!!");
+            } else {
+                currentNode = head;
+                Node newNode = new Node(newEntry);
+                for (int i = 0; i < index - 1; i++) {
+                    currentNode = currentNode.next;
+                    currentNode.next = newNode;
+                }
+                System.out.println("New Node \"" + newEntry + "\" created at index " + index);
             }
-            System.out.println("New Node \"" + newEntry + "\" created at index " + index);
+        } else {
+            System.out.println("Head is null!");
         }
     }
 
-    public void addFirst(Object newEntry){
-        Node newNode = new Node(newEntry);
+    public void addFirst(Object newEntry) {
+        if (!this.isHeadNull()) {
+            Node newNode = new Node(newEntry);
             newNode.next = head;
             head = newNode;
+        } else {
+            System.out.println("Head is null!");
         }
+    }
 
-        public void addLast(Object newEntry){
-            Node newNode = new Node(newEntry);
-            Node currentNode = head;
-            for(int i = 0; i<this.size()-1; i++){
-                currentNode = currentNode.next;
+        public void addLast(Object newEntry) {
+            if (!this.isHeadNull()) {
+                Node newNode = new Node(newEntry);
+                Node currentNode = head;
+                for (int i = 0; i < this.size() - 1; i++) {
+                    currentNode = currentNode.next;
+                }
+                currentNode.next = newNode;
+                newNode = tail;
+
+            } else {
+                System.out.println("Head is null");
             }
-            currentNode.next = newNode;
-            newNode = tail;
-
         }
 
         public void clear(){
@@ -78,28 +97,45 @@ public class LinkedList {
         }
 
         public boolean contains(Object item) {
-            Node currentNode = head;
-            for (int i = 0; i < this.size(); i++) {
-                if (currentNode.data == item) {
-                    return true;
-                } else {
-                    currentNode = currentNode.next;
-                }
+            if (!this.isHeadNull()) {
+                Node currentNode = head;
+                for (int i = 0; i < this.size(); i++) {
+                    if (currentNode.data == item) {
+                        return true;
+                    } else {
+                        currentNode = currentNode.next;
+                    }
 
+                }
+                return false;
+            } else {
+                System.out.println("Head is null!");
+                return false;
+            }
+        }
+
+        public Object get(int index) {
+            if (!this.isHeadNull()) {
+                Node currentNode = head;
+                if (index > this.size()) {
+                    return "The index is outside of the size of the Linked List!!!";
+                } else {
+                    for (int i = 0; i < index; i++) {
+                        currentNode = currentNode.next;
+                    }
+                    return currentNode.data;
+                }
+            } else {
+                System.out.println("Head is null!");
             }
             return false;
         }
 
-        public Object get(int index) {
-            Node currentNode = head;
-            if (index > this.size()) {
-                return "The index is outside of the size of the Linked List!!!";
-            } else {
-                for (int i = 0; i < index; i++) {
-                    currentNode = currentNode.next;
-                }
-                return currentNode.data;
+        public Boolean isHeadNull(){
+            if(head != null){
+                return false;
             }
+            return true;
         }
 
         public Object getFirst(){
@@ -125,14 +161,18 @@ public class LinkedList {
     }
 
 
-    public void print(){
-        Node currentNode = head;
-        System.out.println(head.data);
+    public void print() {
+        if (!this.isHeadNull()) {
+            Node currentNode = head;
+            System.out.println(head.data);
             while (currentNode.next != null) {
                 currentNode = currentNode.next;
                 System.out.println(currentNode.data);
             }
+        } else {
+            System.out.println("No Linked List Exists Yet");
         }
+    }
 
 
 
