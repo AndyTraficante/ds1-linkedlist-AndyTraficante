@@ -35,7 +35,7 @@ public class LinkedList {
     */
     }
 
-    public void count(Object newEntry, int index) {
+    public void add(Object newEntry, int index) {
         if (!this.isHeadNull()) {
             int counter = 0;
             Node currentNode = head;
@@ -219,14 +219,55 @@ public class LinkedList {
             for (int i = 0; i < this.size() - 2; i++) {
                 currentNode = currentNode.next;
             }
+            tail = null;
             tail = currentNode;
-            currentNode = currentNode.next;
-            Node finalNode = currentNode;
-            currentNode = null;
+
+
+            Node finalNode = currentNode.next;
+            currentNode.next = null;
             return finalNode.data;
         }else{
             return "There is no head in the linked list";
         }
+    }
+
+    public Object remove(int index){
+        Node currentNode = head;
+        for(int i = 0; i<index-1; i++){
+            currentNode = currentNode.next;
+        }
+        Node nextNode = currentNode.next;
+
+        currentNode.next = currentNode.next.next;
+        return nextNode.data;
+
+    }
+
+
+    public Object removeOBJ(Object obj){ //added remove oBJ because some objects are int's
+        Node currentNode = head;
+        int index = this.indexOf(obj);
+        for(int i = 0; i<index-1; i++){
+            currentNode = currentNode.next;
+        }
+        Node nextNode = currentNode.next;
+
+        currentNode.next = currentNode.next.next;
+        return nextNode.data;
+
+    }
+
+    public Object set(int index, Object item){
+        Node currentNode = head;
+        for(int i = 0; i<index-1; i++){
+            currentNode = currentNode.next;
+        }
+
+        Object data = currentNode.data;
+
+        currentNode.data = item;
+        return data;
+
     }
 
 
