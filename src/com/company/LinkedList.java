@@ -146,6 +146,17 @@ public class LinkedList {
         }
         }
 
+        public Object getLast(){
+        if(!this.isHeadNull()){
+            Node currentNode = head;
+            for (int i = 0; i < this.size()-1; i++) {
+                currentNode = currentNode.next;
+            }
+            return currentNode.data;
+        }
+        return "The list is empty!";
+        }
+
 
     public int size() {
         int counter = 0;
@@ -159,6 +170,66 @@ public class LinkedList {
         }
         return counter;
     }
+
+    public int indexOf(Object data) {
+        if (!this.isHeadNull()) {
+            Node currentNode = head;
+            for (int i = 0; i < this.size(); i++) {
+                if (currentNode.data.equals(data)) {
+                    return i;
+                } else {
+                    currentNode = currentNode.next;
+                }
+            }
+        }
+            return -1;
+        }
+
+    public int lastIndexOf(Object data) {
+        int highIndex = 0;
+        if (!this.isHeadNull()) {
+            Node currentNode = head;
+            for (int i = 0; i <this.size(); i++) {
+                if (currentNode.data.equals(data)) {
+                    highIndex =  i;
+                } else {
+                    currentNode = currentNode.next;
+                }
+            }
+            return highIndex;
+        }
+        return -1;
+    }
+
+    public Object poll(){
+        Node headNode = head;
+        if(head != null){
+            Node currentNode = headNode.next;
+            head = null;
+            head = currentNode;
+            return headNode.data;
+        }else{
+            return "There is no head in the linked list";
+        }
+    }
+
+    public Object pollLast(){
+        Node currentNode = head;
+        if(head != null){
+            for (int i = 0; i < this.size() - 2; i++) {
+                currentNode = currentNode.next;
+            }
+            tail = currentNode;
+            currentNode = currentNode.next;
+            Node finalNode = currentNode;
+            currentNode = null;
+            return finalNode.data;
+        }else{
+            return "There is no head in the linked list";
+        }
+    }
+
+
 
 
     public void print() {
