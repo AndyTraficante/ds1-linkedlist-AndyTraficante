@@ -6,17 +6,17 @@ public class Main {
     public static void main(String[] args) {
 	LinkedList myList = new LinkedList();
 
-	myList.add("item 1");
-	myList.add("2");
-	myList.add(3);
+	//myList.add("item 1");
+	//myList.add("2");
+	//myList.add(3);
 
-		System.out.println("The list is " + myList.size() + "objects long");
+		System.out.println("The list is " + myList.size() + " objects long");
 
-	myList.add(3, 10);
+	//myList.add(3, 10);
 
-	myList.addFirst("0");
+	//myList.addFirst("0");
 
-	myList.addLast(4);
+	//myList.addLast(4);
 
 		System.out.println(myList.getLast());
 
@@ -32,7 +32,7 @@ public class Main {
 
 		//System.out.println(myList.removeOBJ(2));
 
-		System.out.println("changed object " + myList.set(0, "first"));
+		System.out.println(myList.set(0, 5));
 
 	myList.print();
 

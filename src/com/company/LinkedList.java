@@ -232,42 +232,55 @@ public class LinkedList {
     }
 
     public Object remove(int index){
-        Node currentNode = head;
-        for(int i = 0; i<index-1; i++){
-            currentNode = currentNode.next;
-        }
-        Node nextNode = currentNode.next;
+        if(!this.isHeadNull()) {
+            Node currentNode = head;
+            for (int i = 0; i < index - 1; i++) {
+                currentNode = currentNode.next;
+            }
+            Node nextNode = currentNode.next;
 
-        currentNode.next = currentNode.next.next;
-        return nextNode.data;
+            currentNode.next = currentNode.next.next;
+            return nextNode.data;
+        }
+        else{
+            return "No list exists";
+        }
 
     }
 
 
-    public Object removeOBJ(Object obj){ //added remove oBJ because some objects are int's
-        Node currentNode = head;
-        int index = this.indexOf(obj);
-        for(int i = 0; i<index-1; i++){
-            currentNode = currentNode.next;
+    public Object removeOBJ(Object obj) { //added remove oBJ because some objects are int's
+        if (!this.isHeadNull()) {
+            Node currentNode = head;
+            int index = this.indexOf(obj);
+            for (int i = 0; i < index - 1; i++) {
+                currentNode = currentNode.next;
+            }
+            Node nextNode = currentNode.next;
+
+            currentNode.next = currentNode.next.next;
+            return nextNode.data;
+
+        } else {
+            return "no list exists";
         }
-        Node nextNode = currentNode.next;
-
-        currentNode.next = currentNode.next.next;
-        return nextNode.data;
-
     }
 
-    public Object set(int index, Object item){
-        Node currentNode = head;
-        for(int i = 0; i<index-1; i++){
-            currentNode = currentNode.next;
+    public Object set(int index, Object item) {
+        if (!this.isHeadNull()) {
+            Node currentNode = head;
+            for (int i = 0; i < index - 1; i++) {
+                currentNode = currentNode.next;
+            }
+
+            Object data = currentNode.data;
+
+            currentNode.data = item;
+            return data;
+
+        } else {
+            return "no list exists";
         }
-
-        Object data = currentNode.data;
-
-        currentNode.data = item;
-        return data;
-
     }
 
 
