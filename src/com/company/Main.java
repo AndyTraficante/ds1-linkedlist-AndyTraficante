@@ -6,9 +6,9 @@ public class Main {
     public static void main(String[] args) {
 	LinkedList myList = new LinkedList();
 
-	//myList.add("item 1");
-	//myList.add("2");
-	//myList.add(3);
+	myList.add("item 1");
+	myList.add("2");
+	myList.add(3);
 
 		System.out.println("The list is " + myList.size() + " objects long");
 
@@ -18,14 +18,14 @@ public class Main {
 
 	//myList.addLast(4);
 
-		System.out.println(myList.getLast());
+		System.out.println("Last item is :" + myList.getLast());
 
-		System.out.println(myList.indexOf(3));
-		System.out.println(myList.lastIndexOf(3));
+		System.out.println("First index find :" + myList.indexOf(3));
+		System.out.println("last index find :" + myList.lastIndexOf(3));
 
-	System.out.println(myList.get(1));
+	System.out.println("Getting Index :" + myList.get(1));
 
-	System.out.println(myList.contains(3444));
+	System.out.println("Checking contents :" +myList.contains(3444));
 
 		//System.out.println(myList.poll());
 		//System.out.println(myList.pollLast());
